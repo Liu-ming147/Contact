@@ -1,0 +1,11 @@
+﻿生成启动时间为 2021/9/25 20:34:52。
+     1>项目“E:\编程\c\Code\Contact\Contact\Contact\Contact.vcxproj”在节点 2 上(Build 个目标)。
+     1>Link:
+         D:\Program Files\vs2013\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\编程\c\Code\Contact\Contact\Debug\Contact.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:\编程\c\Code\Contact\Contact\Debug\Contact.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\编程\c\Code\Contact\Contact\Debug\Contact.lib" /MACHINE:X86 Debug\contact.obj
+         Debug\test.obj
+         Contact.vcxproj -> E:\编程\c\Code\Contact\Contact\Debug\Contact.exe
+     1>已完成生成项目“E:\编程\c\Code\Contact\Contact\Contact\Contact.vcxproj”(Build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:00.35
