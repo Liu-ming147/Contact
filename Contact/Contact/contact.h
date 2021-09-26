@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<string.h>
+#include<assert.h>
 
 #define MAX 1000
 #define MAX_NAME 20
@@ -15,7 +16,8 @@ enum Option
 	SEARCH,
 	MODIFY,
 	SHOW,
-	SORT
+	SORT,
+	CLEAR
 };
 
 struct PeoInFo
@@ -50,3 +52,5 @@ void ModifyContact(struct Contact* ps);
 void ShowContact(const struct Contact* ps);
 //排序联系人, 根据姓名首字母从小到大排序
 void SortContact(struct Contact* ps);
+//清空联系人
+void ClearContact(struct Contact* ps);

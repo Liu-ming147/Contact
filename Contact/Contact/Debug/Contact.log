@@ -1,6 +1,37 @@
-﻿生成启动时间为 2021/9/25 20:34:52。
+﻿生成启动时间为 2021/9/26 14:12:46。
      1>项目“E:\编程\c\Code\Contact\Contact\Contact\Contact.vcxproj”在节点 2 上(Build 个目标)。
-     1>Link:
+     1>ClCompile:
+         D:\Program Files\vs2013\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt contact.c
+         contact.c
+     1>e:\编程\c\code\contact\contact\contact\contact.c(21): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\program files\vs2013\vc\include\stdio.h(283) : 参见“scanf”的声明
+     1>e:\编程\c\code\contact\contact\contact\contact.c(23): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\program files\vs2013\vc\include\stdio.h(283) : 参见“scanf”的声明
+     1>e:\编程\c\code\contact\contact\contact\contact.c(25): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\program files\vs2013\vc\include\stdio.h(283) : 参见“scanf”的声明
+     1>e:\编程\c\code\contact\contact\contact\contact.c(27): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\program files\vs2013\vc\include\stdio.h(283) : 参见“scanf”的声明
+     1>e:\编程\c\code\contact\contact\contact\contact.c(29): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\program files\vs2013\vc\include\stdio.h(283) : 参见“scanf”的声明
+     1>e:\编程\c\code\contact\contact\contact\contact.c(62): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\program files\vs2013\vc\include\stdio.h(283) : 参见“scanf”的声明
+     1>e:\编程\c\code\contact\contact\contact\contact.c(94): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\program files\vs2013\vc\include\stdio.h(283) : 参见“scanf”的声明
+     1>e:\编程\c\code\contact\contact\contact\contact.c(126): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\program files\vs2013\vc\include\stdio.h(283) : 参见“scanf”的声明
+     1>e:\编程\c\code\contact\contact\contact\contact.c(138): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\program files\vs2013\vc\include\stdio.h(283) : 参见“scanf”的声明
+     1>e:\编程\c\code\contact\contact\contact\contact.c(143): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\program files\vs2013\vc\include\stdio.h(283) : 参见“scanf”的声明
+     1>e:\编程\c\code\contact\contact\contact\contact.c(147): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\program files\vs2013\vc\include\stdio.h(283) : 参见“scanf”的声明
+     1>e:\编程\c\code\contact\contact\contact\contact.c(151): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\program files\vs2013\vc\include\stdio.h(283) : 参见“scanf”的声明
+     1>e:\编程\c\code\contact\contact\contact\contact.c(155): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\program files\vs2013\vc\include\stdio.h(283) : 参见“scanf”的声明
+     1>e:\编程\c\code\contact\contact\contact\contact.c(159): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\program files\vs2013\vc\include\stdio.h(283) : 参见“scanf”的声明
+       Link:
          D:\Program Files\vs2013\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\编程\c\Code\Contact\Contact\Debug\Contact.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:\编程\c\Code\Contact\Contact\Debug\Contact.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\编程\c\Code\Contact\Contact\Debug\Contact.lib" /MACHINE:X86 Debug\contact.obj
          Debug\test.obj
          Contact.vcxproj -> E:\编程\c\Code\Contact\Contact\Debug\Contact.exe
@@ -8,4 +39,4 @@
 
 生成成功。
 
-已用时间 00:00:00.35
+已用时间 00:00:00.43

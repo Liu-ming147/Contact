@@ -2,12 +2,12 @@
 
 void menu()
 {
-	printf("*******************************************\n");
-	printf("********  1.add          2.del     ********\n");
-	printf("********  3.search       4.modify  ********\n");
-	printf("********  5.show         6.sort    ********\n");
-	printf("********  0.exit                   ********\n");
-	printf("*******************************************\n");
+	printf("*************************************\n");
+	printf("*****  1.add          2.del     *****\n");
+	printf("*****  3.search       4.modify  *****\n");
+	printf("*****  5.show         6.sort    *****\n");
+	printf("*****  7.clear        0.exit    *****\n");
+	printf("*************************************\n");
 }
 
 int main()
@@ -45,8 +45,11 @@ int main()
 		case EXIT:
 			printf("退出通讯录\n");
 			break;
+		case CLEAR:
+			ClearContact(&con);
+			break;
 		default:
-			printf("输入错误,请重新输入！\n");
+			printf("输入有误,请重新输入！\n");
 			break;
 		}
 	} while (input);
