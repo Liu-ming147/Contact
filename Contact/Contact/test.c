@@ -43,6 +43,7 @@ int main()
 			SortContact(&con);
 			break;
 		case EXIT:
+			DestroyContact(&con);//退出时销毁通讯录
 			printf("退出通讯录\n");
 			break;
 		case CLEAR:

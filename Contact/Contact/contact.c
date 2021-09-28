@@ -1,41 +1,58 @@
 #include"contact.h"
 
 //初始化通讯录
-void InitContact(struct Contact* ps)
+void InitContact(Contact* ps)
 {
-	memset(ps->data, 0, sizeof(ps->data));
-	ps->size = 0;//设置通讯录最初只有0个元素
+	ps->data = (PeoInFo *)calloc(DEFAULT_SZ, sizeof(PeoInFo));
+	if (ps->data == NULL)
+	{
+		printf("%s\n", strerror(errno));
+		return;
+	}
+	ps->size = 0;
+	ps->capacity = DEFAULT_SZ;
+}
+
+void CheckCapacity(Contact* ps)
+{
+	//每次扩容双倍
+	if (ps->size == ps->capacity)
+	{
+		struct PeoInFo* ptr = realloc(ps->data, (ps->capacity * 2) * sizeof(struct PeoInFo));
+		if (ptr != NULL)
+		{
+			ps->data = ptr;
+			ps->capacity *= 2;
+			printf("扩容成功！\n");
+		}
+	}
 }
 
 //1.添加联系人信息
-void AddContact(struct Contact* ps)
+void AddContact(Contact* ps)
 {
 	assert(ps != NULL);
-	if (ps->size == MAX)
-	{
-		printf("通讯录已满，无法添加！\n");
-	}
-	else
-	{
-		printf("请输入姓名：>");
-		scanf("%s", ps->data[ps->size].name);
-		printf("请输入年龄：>");
-		scanf("%d", &(ps->data[ps->size].age));
-		printf("请输入性别：>");
-		scanf("%s", ps->data[ps->size].sex);
-		printf("请输入电话：>");
-		scanf("%s", ps->data[ps->size].tele);
-		printf("请输入住址：>");
-		scanf("%s", ps->data[ps->size].addr);
+	//检测通讯录容量，如果满了就增加空间
+	CheckCapacity(ps);
+	//添加信息
+	printf("请输入姓名：>");
+	scanf("%s", ps->data[ps->size].name);
+	printf("请输入年龄：>");
+	scanf("%d", &(ps->data[ps->size].age));
+	printf("请输入性别：>");
+	scanf("%s", ps->data[ps->size].sex);
+	printf("请输入电话：>");
+	scanf("%s", ps->data[ps->size].tele);
+	printf("请输入住址：>");
+	scanf("%s", ps->data[ps->size].addr);
 
-		ps->size++;
-		printf("添加成功！\n");
-	}
+	ps->size++;
+	printf("添加成功！\n");
 
 }
 
 //查找联系人姓名
-static int FindByName(const struct Contact* ps, char* name)
+static int FindByName(const Contact* ps, char* name)
 {
 	int i;
 	for (i = 0; i < ps->size; i++)
@@ -48,7 +65,7 @@ static int FindByName(const struct Contact* ps, char* name)
 }
 
 //2.删除联系人信息
-void DelContact(struct Contact* ps)
+void DelContact(Contact* ps)
 {
 	assert(ps != NULL);
 	char name[MAX_NAME];
@@ -75,12 +92,12 @@ void DelContact(struct Contact* ps)
 			ps->data[j] = ps->data[j + 1];
 		}
 		ps->size--;
+		printf("删除成功！\n");
 	}
-	printf("删除成功！\n");
 }
 
 //3.查询联系人信息
-void SearchContact(const struct Contact* ps)
+void SearchContact(const Contact* ps)
 {
 	assert(ps != NULL);
 	char name[MAX_NAME];
@@ -111,7 +128,7 @@ void SearchContact(const struct Contact* ps)
 }
 
 //4.修改联系人信息
-void ModifyContact(struct Contact* ps)
+void ModifyContact(Contact* ps)
 {
 	assert(ps != NULL);
 	char name[MAX_NAME];
@@ -133,40 +150,43 @@ void ModifyContact(struct Contact* ps)
 		printf("查无此人！\n");
 		return;
 	}
-	printf("请输入要修改的信息：1-名字\t2-年龄\t3-性别\t4-电话\t5-住址:>");
-	int msg;
-	scanf("%d", &msg);
-	switch (msg)
+	else
 	{
-	case 1:
-		printf("请输入修改后姓名:>");
-		scanf("%s", ps->data[pos].name);
-		break;
-	case 2:
-		printf("请输入修改后年龄:>");
-		scanf("%d", &ps->data[pos].age);
-		break;
-	case 3:
-		printf("请输入修改后性别:>");
-		scanf("%s", ps->data[pos].sex);
-		break;
-	case 4:
-		printf("请输入修改后电话:>");
-		scanf("%s", ps->data[pos].tele);
-		break;
-	case 5:
-		printf("请输入修改后地址:>");
-		scanf("%s", ps->data[pos].addr);
-		break;
-	default:
-		printf("输入有误，修改失败\n");
-		return;
+		printf("请输入要修改的信息：1-名字\t2-年龄\t3-性别\t4-电话\t5-住址:>");
+		int msg;
+		scanf("%d", &msg);
+		switch (msg)
+		{
+		case 1:
+			printf("请输入修改后姓名:>");
+			scanf("%s", ps->data[pos].name);
+			break;
+		case 2:
+			printf("请输入修改后年龄:>");
+			scanf("%d", &ps->data[pos].age);
+			break;
+		case 3:
+			printf("请输入修改后性别:>");
+			scanf("%s", ps->data[pos].sex);
+			break;
+		case 4:
+			printf("请输入修改后电话:>");
+			scanf("%s", ps->data[pos].tele);
+			break;
+		case 5:
+			printf("请输入修改后地址:>");
+			scanf("%s", ps->data[pos].addr);
+			break;
+		default:
+			printf("输入有误，修改失败\n");
+			return;
+		}
+		printf("修改成功！\n");
 	}
-	printf("修改成功！\n");
 }
 
 //5.显示联系人信息
-void ShowContact(const struct Contact* ps)
+void ShowContact(const Contact* ps)
 {
 	assert(ps != NULL);
 	if (ps->size == 0)
@@ -189,7 +209,7 @@ void ShowContact(const struct Contact* ps)
 }
 
 //6.排序联系人信息
-void SortContact(struct Contact* ps)
+void SortContact(Contact* ps)
 {
 	assert(ps != NULL);
 	int i, j;
@@ -219,8 +239,16 @@ void SortContact(struct Contact* ps)
 }
 
 //7.清空联系人信息
-void ClearContact(struct Contact* ps)
+void ClearContact(Contact* ps)
 {
 	InitContact(ps);
 	printf("已清空通讯录！\n");
+}
+//销毁通讯录
+void DestroyContact(Contact* ps)
+{
+	free(ps->data);
+	ps->data = NULL;
+	ps->capacity = 0;
+	ps->size = 0;
 }
