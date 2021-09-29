@@ -6,11 +6,35 @@ void InitContact(Contact* ps)
 	ps->data = (PeoInFo *)calloc(DEFAULT_SZ, sizeof(PeoInFo));
 	if (ps->data == NULL)
 	{
-		printf("%s\n", strerror(errno));
+		printf("InitContact::%s\n", strerror(errno));
 		return;
 	}
 	ps->size = 0;
 	ps->capacity = DEFAULT_SZ;
+	//把文件中存放的信息加载到通讯录
+	LoadContact(ps);
+
+}
+
+void LoadContact(Contact* ps)
+{
+	PeoInFo tmp = { 0 };
+	FILE* pfRead = fopen("contact.dat", "rb");
+	if (pfRead == NULL)
+	{
+		printf("LoadContact::%s\n", strerror(errno));
+		return;
+	}
+	//读取文件，放到通讯录中
+	while (fread(&tmp, sizeof(PeoInFo), 1, pfRead))
+	{
+		CheckCapacity(ps);
+		ps->data[ps->size] = tmp;
+		ps->size++;
+	}
+
+	fclose(pfRead);
+	pfRead = NULL;
 }
 
 void CheckCapacity(Contact* ps)
@@ -241,9 +265,17 @@ void SortContact(Contact* ps)
 //7.清空联系人信息
 void ClearContact(Contact* ps)
 {
-	InitContact(ps);
+	ps->data = (PeoInFo *)calloc(DEFAULT_SZ, sizeof(PeoInFo));
+	if (ps->data == NULL)
+	{
+		printf("InitContact::%s\n", strerror(errno));
+		return;
+	}
+	ps->size = 0;
+	ps->capacity = DEFAULT_SZ;
 	printf("已清空通讯录！\n");
 }
+
 //销毁通讯录
 void DestroyContact(Contact* ps)
 {
@@ -251,4 +283,24 @@ void DestroyContact(Contact* ps)
 	ps->data = NULL;
 	ps->capacity = 0;
 	ps->size = 0;
+}
+
+//8.保存通讯录
+void SaveContact(Contact* ps)
+{
+	FILE* pfWrite = fopen("contact.dat", "wb");
+	if (pfWrite == NULL)
+	{
+		printf("SaveContact::%s\n", strerror(errno));
+		return;
+	}
+	//将通讯录中的信息写入到文件
+	for (int i = 0; i < ps->size; i++)
+	{
+		fwrite(&ps->data[i], sizeof(PeoInFo), 1, pfWrite);
+	}
+
+	fclose(pfWrite);
+	pfWrite = NULL;
+	printf("保存成功！\n");
 }

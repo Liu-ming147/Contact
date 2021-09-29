@@ -6,7 +6,8 @@ void menu()
 	printf("*****  1.add          2.del     *****\n");
 	printf("*****  3.search       4.modify  *****\n");
 	printf("*****  5.show         6.sort    *****\n");
-	printf("*****  7.clear        0.exit    *****\n");
+	printf("*****  7.clear        8.save    *****\n");
+	printf("*****  0.exit                   *****\n");
 	printf("*************************************\n");
 }
 
@@ -43,11 +44,15 @@ int main()
 			SortContact(&con);
 			break;
 		case EXIT:
+			SaveContact(&con);
 			DestroyContact(&con);//退出时销毁通讯录
 			printf("退出通讯录\n");
 			break;
 		case CLEAR:
 			ClearContact(&con);
+			break;
+		case SAVE:
+			SaveContact(&con);
 			break;
 		default:
 			printf("输入有误,请重新输入！\n");

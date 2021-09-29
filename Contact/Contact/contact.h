@@ -1,3 +1,5 @@
+#define _CRT_SECURE_NO_WARNINGS
+
 #include<stdio.h>
 #include<string.h>
 #include<assert.h>
@@ -19,7 +21,8 @@ enum Option
 	MODIFY,
 	SHOW,
 	SORT,
-	CLEAR
+	CLEAR,
+	SAVE
 };
 
 typedef struct PeoInFo
@@ -59,3 +62,9 @@ void SortContact(Contact* ps);
 void ClearContact(Contact* ps);
 //销毁通讯录
 void DestroyContact(Contact* ps);
+//保存通讯录
+void SaveContact(Contact* ps);
+//检测通讯录是否需要扩容
+void CheckCapacity(Contact* ps);
+//加载通讯录
+void LoadContact(Contact* ps);
